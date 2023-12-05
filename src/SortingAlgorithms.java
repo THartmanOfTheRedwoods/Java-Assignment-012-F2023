@@ -12,42 +12,42 @@ public class SortingAlgorithms {
         list = new ArrayList<>();
         int a;
         System.out.println("Enter an integer:");
-        for (a = 0; a < list.indexOf(5); a++){
+        while (scan.hasNextInt()) {
             a = scan.nextInt();
             list.add(a);
             System.out.println("Enter another integer or \"q\" to quit");
-            if (scan.nextLine().equals("q")){
+            if (scan.nextLine().equals("q")) {
                 break;
             }
         }return list;
     }
     public static void selectionSort(ArrayList<Integer> list){
-        for (int i = 0; i < 6 - 1; i++){
+        int s = list.size();
+        for (int i = 0; i < s - 1; i++){
             lowestInt = i;
-            for (int l = i + 1; l < 6; l++){
-                if (list.get(l) < list.get(6)){
+            for (int l = i + 1; l < s; l++){
+                if (list.get(l) < list.get(lowestInt)){
                     lowestInt = l;
                 }
             }
-            int low = list.get(lowestInt);
-            int med = list.get(i);
-            int temp = low;
-            low = med;
-            med = list.get(temp);
+            int temp = list.get(lowestInt);
+            list.set(lowestInt, list.get(i));
+            list.set(i, temp);
         }
     }
     public void printArray(){
         System.out.print("{");
-        System.out.print(list.get(0));
         for(Integer integer : list){
-            System.out.print(", " + integer);
+            System.out.print(integer + ", ");
         }
         System.out.print("}");
     }
     public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
         SortingAlgorithms sa = new SortingAlgorithms();
         sa.makeArray();
+        sa.printArray();
+        selectionSort(sa.list);
+        System.out.println();
         sa.printArray();
     }
 }
