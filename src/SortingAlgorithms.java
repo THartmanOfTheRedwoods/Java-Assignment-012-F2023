@@ -1,4 +1,7 @@
 public class SortingAlgorithms {
+    /*
+    Chris Shortt 12/13/2023   Thanks for everything Mr,Trevor!
+     */
 
     public static void selectionSort(int[] arr) {
         int n = arr.length;
