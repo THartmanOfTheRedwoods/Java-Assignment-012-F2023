@@ -1,4 +1,5 @@
-public class SortingAlgorithms {
+public class SelectionSort {
+
     // method to find the index of the lowest element
     private static int indexLowest(int[] arr, int start) {
         int minIndex = start;
@@ -18,7 +19,7 @@ public class SortingAlgorithms {
         arr[j] = temp;
     }
 
-    // Selection Sort algorithm
+    // Selection Sort algorithm to sort the integer array
     public static void selectionSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             // Find the index of the lowest element
@@ -27,5 +28,21 @@ public class SortingAlgorithms {
             // Swaps the ith element and the lowest element found
             swap(arr, i, minIndex);
         }
+    }
+
+
+    public static void main(String[] args) {
+       int[] arrayToSort = {45, 66, 12, 976, 1};
+
+       selectionSort(arrayToSort);
+
+        System.out.print("Sorted Array: [");
+        for (int i = 0; i < arrayToSort.length; i++) {
+            System.out.print(arrayToSort[i]);
+            if (i < arrayToSort.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
     }
 }
